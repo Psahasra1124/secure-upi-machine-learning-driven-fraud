@@ -15,7 +15,8 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 60
     database_url: str = "sqlite:///./secure_upi.db"
     cors_origins: Annotated[list[str], NoDecode] = Field(
-        default_factory=lambda: ["http://localhost:5173"]
+        default_factory=lambda: ["http://localhost:5173",
+        "https://secure-upi-machine-learning-driven.vercel.app"]
     )
     model_path: Path = Path("../ml/artifacts/fraud_model.joblib")
     model_metadata_path: Path = Path("../ml/artifacts/model_metadata.json")
